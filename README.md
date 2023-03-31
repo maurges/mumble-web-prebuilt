@@ -16,6 +16,13 @@ Other than the slight modification to `config.js`, it only had its webpack confi
 
 The proxy (mumble-web-proxy) was built using rustc 1.66.0 (`stable-x86_64-unknown-linux-gnu`) on Debian 11 running on x86_64 architecture. Therefore, the binary will not work on other architectures.
 You need Linux (distro is less relevant) running on x86_64 to use the binary.
+Also, before building, the the `Cargo.toml` file had the line specifying the `rtp` dependency replaced with the following line:
+
+```toml
+rtp = { git = "https://github.com/Skgland/rtp", rev = "83eb4dd", features = ["rfc5764-openssl"] }
+```
+
+This is because the project wasn't building with its current `rtp` dependency.
 
 Several config snippets are also provided, such as a systemd service file, and an nginx site snippet.
 
