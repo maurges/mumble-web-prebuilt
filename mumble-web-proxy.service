@@ -1,0 +1,18 @@
+[Unit]
+Description=Mumble web proxy
+Documentation=https://github.com/johni0702/mumble-web-proxy
+Requires=network.target mumble-server.service
+After=network.target mumble-server.service
+
+[Service]
+Type=simple
+User=mumble-web
+Group=mumble-web
+ExecStart=/home/mumble-web/mumble-web-proxy --config /home/mumble-web/mumble-web-proxy.toml
+ProtectSystem=yes
+NoNewPrivileges=yes
+PrivateTmp=yes
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

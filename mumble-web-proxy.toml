@@ -1,0 +1,3 @@
+listen-ws = 64737
+server = 'localhost:64738'
+accept-invalid-certificate = true
